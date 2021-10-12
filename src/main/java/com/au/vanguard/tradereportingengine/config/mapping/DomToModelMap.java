@@ -2,10 +2,10 @@ package com.au.vanguard.tradereportingengine.config.mapping;
 
 public enum DomToModelMap {
 
-    BUYER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","buyerPartyReference","buyerPartyReference"),
-    SELLER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","sellerPartyReference","sellerPartyReference"),
-    PREMIUM_AMOUNT("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","amount","amount"),
-    PREMIUM_CURRENCY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","currency","currency");
+    BUYER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","buyerPartyReference","buyerPartyReference","href"),
+    SELLER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","sellerPartyReference","sellerPartyReference","href"),
+    PREMIUM_AMOUNT("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","amount","amount",""),
+    PREMIUM_CURRENCY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","currency","currency","");
 
     private String messageType;
 
@@ -15,11 +15,17 @@ public enum DomToModelMap {
 
     private String modelFieldName;
 
-    DomToModelMap(String messageType, String modelName, String elementName, String modelFieldName) {
+    private String domAttribute;
+
+    DomToModelMap() {
+    }
+
+    DomToModelMap(String messageType, String modelName, String elementName, String modelFieldName, String domAttribute) {
         this.messageType = messageType;
         this.modelName = modelName;
         this.elementName = elementName;
         this.modelFieldName = modelFieldName;
+        this.domAttribute = domAttribute;
     }
 
     public String getMessageType() {
@@ -52,5 +58,13 @@ public enum DomToModelMap {
 
     public void setModelFieldName(String modelFieldName) {
         this.modelFieldName = modelFieldName;
+    }
+
+    public String getDomAttribute() {
+        return domAttribute;
+    }
+
+    public void setDomAttribute(String domAttribute) {
+        this.domAttribute = domAttribute;
     }
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
@@ -17,6 +18,7 @@ import java.util.Objects;
 public class Trade implements Serializable {
     @Id
     @Column(name="trade_id")
+    @GeneratedValue
     private Long tradeId;
     @Column(name="buyer_party")
     private String buyerPartyReference;
