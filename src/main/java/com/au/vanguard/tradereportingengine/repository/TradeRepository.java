@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface TradeRepository extends JpaRepository<Trade, Long> {
 
-
     List<Trade> findAll();
 }

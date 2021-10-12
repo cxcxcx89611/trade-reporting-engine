@@ -62,7 +62,4 @@ public class ResponseDTO<T> {
         sb.append("\"}");
         return sb.toString();
     }
-
-
-
 }

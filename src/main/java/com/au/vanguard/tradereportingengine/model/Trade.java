@@ -21,9 +21,9 @@ public class Trade implements Serializable {
     @GeneratedValue
     private Long tradeId;
     @Column(name="buyer_party")
-    private String buyerPartyReference;
+    private String buyerParty;
     @Column(name="seller_party")
-    private String sellerPartyReference;
+    private String sellerParty;
     @Column(name="premium_amount")
     private String amount;
     @Column(name="premium_currency")
@@ -35,14 +35,14 @@ public class Trade implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Trade trade = (Trade) o;
         return Objects.equals(tradeId, trade.tradeId) &&
-                Objects.equals(buyerPartyReference, trade.buyerPartyReference) &&
-                Objects.equals(sellerPartyReference, trade.sellerPartyReference) &&
+                Objects.equals(buyerParty, trade.buyerParty) &&
+                Objects.equals(sellerParty, trade.sellerParty) &&
                 Objects.equals(amount, trade.amount) &&
                 Objects.equals(currency, trade.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tradeId, buyerPartyReference, sellerPartyReference, amount, currency);
+        return Objects.hash(tradeId, buyerParty, sellerParty, amount, currency);
     }
 }

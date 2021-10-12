@@ -11,5 +11,4 @@ public class TradeReportingEngineApplication {
         SpringApplication.run(TradeReportingEngineApplication.class, args);
     }
 
-
 }

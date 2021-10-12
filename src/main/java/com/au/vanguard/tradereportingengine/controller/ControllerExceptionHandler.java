@@ -1,4 +1,4 @@
-package com.au.vanguard.tradereportingengine.handler;
+package com.au.vanguard.tradereportingengine.controller;
 
 
 import com.au.vanguard.tradereportingengine.dto.ResponseDTO;

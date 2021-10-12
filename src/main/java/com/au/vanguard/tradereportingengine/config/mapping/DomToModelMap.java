@@ -2,8 +2,8 @@ package com.au.vanguard.tradereportingengine.config.mapping;
 
 public enum DomToModelMap {
 
-    BUYER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","buyerPartyReference","buyerPartyReference","href"),
-    SELLER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","sellerPartyReference","sellerPartyReference","href"),
+    BUYER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","buyerPartyReference","buyerParty","href"),
+    SELLER_PARTY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","sellerPartyReference","sellerParty","href"),
     PREMIUM_AMOUNT("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","amount","amount",""),
     PREMIUM_CURRENCY("requestConfirmation","com.au.vanguard.tradereportingengine.dto.TradeDto","currency","currency","");
 

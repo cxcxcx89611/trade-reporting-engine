@@ -2,35 +2,35 @@ package com.au.vanguard.tradereportingengine.config.criteria;
 
 public enum QueryFilterCriteria {
 
-    BUYER_PARTY_TRADECRITERIA1("BUYER_PARTY","EMU_BANK","TRADE","TRADECRITERIA1"),
-    PREMIUM_CURRENCY_TRADECRITERIA1("PREMIUM_CURRENCY","AUD","TRADE","TRADECRITERIA1"),
-    BUYER_PARTY_TRADECRITERIA2("BUYER_PARTY","BISON_BANK","TRADE","TRADECRITERIA2"),
-    PREMIUM_CURRENCY_TRADECRITERIA2("PREMIUM_CURRENCY","USD","TRADE","TRADECRITERIA2");
+    BUYER_PARTY_TRADECRITERIA1("sellerParty","EMU_BANK","Trade","TRADECRITERIA1"),
+    PREMIUM_CURRENCY_TRADECRITERIA1("currency","AUD","Trade","TRADECRITERIA1"),
+    BUYER_PARTY_TRADECRITERIA2("sellerParty","BISON_BANK","Trade","TRADECRITERIA2"),
+    PREMIUM_CURRENCY_TRADECRITERIA2("currency","USD","Trade","TRADECRITERIA2");
 
-    private String columnName;
+    private String attrFieldName;
 
     private Object value;
 
-    private String tableName;
+    private String className;
 
     private String criteriaName;
 
     QueryFilterCriteria() {
     }
 
-    QueryFilterCriteria(String columnName, Object value, String tableName, String criteriaName) {
-        this.columnName = columnName;
+    QueryFilterCriteria(String attrFieldName, Object value, String className, String criteriaName) {
+        this.attrFieldName = attrFieldName;
         this.value = value;
-        this.tableName = tableName;
+        this.className = className;
         this.criteriaName = criteriaName;
     }
 
-    public String getColumnName() {
-        return columnName;
+    public String getAttrFieldName() {
+        return attrFieldName;
     }
 
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
+    public void setAttrFieldName(String attrFieldName) {
+        this.attrFieldName = attrFieldName;
     }
 
     public Object getValue() {
@@ -41,12 +41,12 @@ public enum QueryFilterCriteria {
         this.value = value;
     }
 
-    public String getTableName() {
-        return tableName;
+    public String getClassName() {
+        return className;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public String getCriteriaName() {
