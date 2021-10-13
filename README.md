@@ -24,7 +24,7 @@ trade reporting engine are implemented through spring boot microservices,  its m
 
 com.au.vanguard.tradereportingengine.runner.MessageConsumer   plays the role as the message consumer to get message loaded into H2 database. When application start, all event messages under folder: \src\main\resources\event will be picked and loaded.
 
-**To extend the event types,**  please ensure all other messages move into folder :\src\main\resources\event  also need to add new entry in the mapping config file :  src/main/java/com/au/vanguard/tradereportingengine/config/mapping/DomToModelMap.java
+**To extend the event types,**  please ensure all new messages move into folder :\src\main\resources\event  also need to add new entry in the mapping config file :  src/main/java/com/au/vanguard/tradereportingengine/config/mapping/DomToModelMap.java
 Dom element to entity class mapping can be defined in this class. Message consumer will read this file to populate all fields of model class object, then load them into DB. 
 
 **To extend the query filter criteria**, please refer to the criteria decision file: 
@@ -34,7 +34,7 @@ each query criteria should have unique criteria name as following shows:
     BUYER_PARTY_TRADECRITERIA1("sellerParty","EMU_BANK","Trade","***TRADECRITERIA1***"),  
     PREMIUM_CURRENCY_TRADECRITERIA1("currency","AUD","Trade","***TRADECRITERIA1***"),
 
-If new criteria need to be added on just inject the criteria name as part of the controler as 
+If new criteria need to be added, just add the criteria name entry as part of the controler:
 
     src/main/java/com/au/vanguard/tradereportingengine/controller/TradeController.java:
     List<String> criteriaNameList = new ArrayList<>();  
@@ -42,7 +42,7 @@ If new criteria need to be added on just inject the criteria name as part of the
     criteriaNameList.add("TRADECRITERIA2");  
     List<TradeDto> tradeDtoList = tradeService.getTradeByCriteria(criteriaNameList); 
 
-TradeController plays the role as restful services endpoint. When user hit the  endpoint through Get method: http://localhost:8080/trade-report-engine/v1/trade, the application will return the data filtered by criteria:
+TradeController plays the role as restful services endpoint. When user hit the endpoint through Get method: http://localhost:8080/trade-report-engine/v1/trade, the application will return the data filtered by criteria:
 
     { "success": true, "code": "200", "message": "search query success, filter criteria is : TRADECRITERIA1,TRADECRITERIA2", "content": [ { "buyerParty": "LEFT_BANK", "sellerParty": "EMU_BANK", "amount": "100.0", "currency": "AUD" }, { "buyerParty": "LEFT_BANK", "sellerParty": "EMU_BANK", "amount": "200.0", "currency": "AUD" }, { "buyerParty": "EMU_BANK", "sellerParty": "BISON_BANK", "amount": "500.0", "currency": "USD" }, { "buyerParty": "EMU_BANK", "sellerParty": "BISON_BANK", "amount": "600.0", "currency": "USD" } ] }
 
@@ -50,7 +50,7 @@ TradeController plays the role as restful services endpoint. When user hit the  
 ## Test cases
 
 please check src/test folder.
-In this project,  unit tests have been implemented to cover each app layer:
+In this project,  unit tests have been implemented to cover each layer:
 1. Application Test
 2. Controller Test
 3. Service Test
