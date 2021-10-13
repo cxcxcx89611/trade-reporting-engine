@@ -14,6 +14,7 @@ import java.util.Set;
 
 @Repository
 public class TradeCustomRepository {
+
     @PersistenceContext
     private EntityManager entityManager;
 

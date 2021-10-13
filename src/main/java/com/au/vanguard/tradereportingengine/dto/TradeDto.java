@@ -1,5 +1,7 @@
 package com.au.vanguard.tradereportingengine.dto;
 
+import java.util.Objects;
+
 public class TradeDto {
    private String buyerParty;
    private String sellerParty;
@@ -7,6 +9,22 @@ public class TradeDto {
    private String currency;
 
    public TradeDto() {
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      TradeDto tradeDto = (TradeDto) o;
+      return Objects.equals(buyerParty, tradeDto.buyerParty) &&
+              Objects.equals(sellerParty, tradeDto.sellerParty) &&
+              Objects.equals(amount, tradeDto.amount) &&
+              Objects.equals(currency, tradeDto.currency);
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(buyerParty, sellerParty, amount, currency);
    }
 
    public TradeDto(String buyerParty, String sellerParty, String amount, String currency) {

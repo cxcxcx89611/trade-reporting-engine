@@ -12,8 +12,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Trade implements Serializable {
     @Id
@@ -28,6 +26,17 @@ public class Trade implements Serializable {
     private String amount;
     @Column(name="premium_currency")
     private String currency;
+
+    public Trade() {
+    }
+
+    public Trade(Long tradeId, String buyerParty, String sellerParty, String amount, String currency) {
+        this.tradeId = tradeId;
+        this.buyerParty = buyerParty;
+        this.sellerParty = sellerParty;
+        this.amount = amount;
+        this.currency = currency;
+    }
 
     @Override
     public boolean equals(Object o) {
